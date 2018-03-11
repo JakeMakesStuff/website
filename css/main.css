@@ -1,0 +1,13 @@
+body {
+  overflow-x: hidden;
+}
+
+div#projects img {
+  /* height: 50%; */
+  width: 100%;
+  float: right;
+}
+
+div#projects div.row {
+  margin-right: -200px;
+}
