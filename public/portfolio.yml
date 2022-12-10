@@ -15,7 +15,7 @@ buttons:
 work:
   Krystal:
     started: 2021
-    left: null
+    left: 2022
     url: https://k.io/
     description: My job at Krystal is writing backend solutions primarily in Go. An example of my work is working on the <a href="https://github.com/krystal/katapult-cli">Katapult CLI</a> and working on Koru, our work in progress alternative to cPanel. We use a variety of technologies such as gRPC to power this in the backend.
     icon: krystal.jpeg
