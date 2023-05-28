@@ -13,6 +13,14 @@ buttons:
 # The buttons for the top of the website.
 
 work:
+  Citi:
+    started: 2023
+    left: null
+    url: https://www.citi.com/
+    description: My job at Citi involves writing code to help developers inside Citi.
+    icon: bank-citigroup.png
+  # Information about Citibank.
+
   Krystal:
     started: 2021
     left: 2022
