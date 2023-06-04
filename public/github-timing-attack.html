@@ -48,7 +48,7 @@
                 updateStatus("POC started - this might take a minute");
 
                 // Get the data for a lot of actual 404's.
-                const time404 = await getAverageRequestTime("https://github.com/jakemakesstuff/thisrepodoesnotexist");
+                const time404 = await getAverageRequestTime("https://github.com/github/thisrepodoesnotexist");
 
                 document.getElementById('404-result').innerText = `404 time: ${time404}ms`;
                 updateStatus("404 check complete. Testing for existence of provided repo  - this might take a minute");

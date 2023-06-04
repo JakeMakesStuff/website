@@ -1,15 +1,9 @@
-name: Jake Gealer
-url: https://jakegealer.me/
-description: Hi! My name is Jake Gealer and I am a passionate developer from the UK who has experience with full stack development.
+name: Astrid
+url: https://astrid.place/
+description: Hi! My name is Astrid and I am a passionate developer from the UK who has experience with full stack development.
 # The name, URL and description.
 
-buttons:
-  -
-    name: Blog
-    url: https://blog.jakegealer.me/
-  -
-    name: LinkedIn
-    url: https://www.linkedin.com/in/jake-gealer-b2406116b/
+buttons: []
 # The buttons for the top of the website.
 
 work:

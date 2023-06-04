@@ -1,2 +1,2 @@
-# [jakegealer.me](https://jakegealer.me)
+# website
 My personal website.

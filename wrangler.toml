@@ -1,9 +1,9 @@
-name = "jakegealer-me"
+name = "astrid-place"
 type = "webpack"
 account_id = "ac2dd89af834dd17d7f5cf5df3789f08"
 workers_dev = false
-route = "jakegealer.me/*"
-zone_id = "8ca966f8753a1255e97401c9dbab2afe"
+route = "astrid.place/*"
+zone_id = "ca363b7ac71cf95c952b6c24e9300c0a"
 
 [site]
 bucket = "./public"
