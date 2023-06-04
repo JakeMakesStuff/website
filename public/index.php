@@ -8,7 +8,7 @@
         <title><?php echo $GLOBALS["portfolio_yml"]['name'] ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="Jake Gealer,Developer,HTML,Python,Javascript,TypeScript">
+        <meta name="keywords" content="Developer,HTML,Python,Javascript,TypeScript">
         <meta name="author" content="<?php echo $GLOBALS["portfolio_yml"]['name'] ?>">
         <meta name="description" content="<?php echo $GLOBALS["portfolio_yml"]['description'] ?>">
         <meta property="og:type" content="website">
@@ -188,17 +188,6 @@
                 ?>
             </div>
         </div>
-        <?php
-            if (!$GLOBALS["cv"]) {
-                echo('<footer class="footer" style="padding: 20px">
-                <div class="content has-text-centered">
-                    <p>
-                        Website template/renderer by <a href="https://jakegealer.me">Jake Gealer</a>. The source code for this website is licensed under the <a href="https://opensource.org/licenses/MPL-2.0">MPL-2.0</a> license.
-                    </p>
-                </div>
-            </footer>');
-            }
-        ?>
 
         <script>
             // Get the various elements we need to manage.
