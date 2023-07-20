@@ -12,7 +12,7 @@ buttons: []
 
 work:
   'Citi (Software Engineer)':
-    started: 2023
+    started: 'January 2023'
     left: null
     url: https://www.citi.com/
     description: My job involves writing code to help developers inside Citi.
@@ -20,16 +20,16 @@ work:
   # Information about Citibank.
 
   'Krystal (Software Engineer)':
-    started: 2021
-    left: 2022
+    started: 'July 2021'
+    left: 'December 2022'
     url: https://k.io/
     description: My job at Krystal was writing backend solutions primarily in Go. An example of my work was working on the <a href="https://github.com/krystal/katapult-cli">Katapult CLI</a> and working on Koru, our work in progress alternative to cPanel. We used a variety of technologies such as gRPC to power this in the backend, and I implemented various bits of logic between both the Go and Rails sides such as the filesystem logic.
     icon: krystal.jpeg
   # Information about Krystal.
 
   'DigitalOcean (Contractual Software Engineer)':
-    started: 2019
-    left: 2021
+    started: 'July 2019'
+    left: 'July 2021'
     url: https://digitalocean.com
     description: My job was to write code for the community aspects of the DigitalOcean website. DigitalOcean is a large cloud provider that powers businesses such as Slack and GitLab. My job at DigitalOcean was writing various community tools and working on the start of their Next.js platform. These tools used a variety of frameworks such as React and Vue, and also used various different API's. An example of a set of tools I maintained at DigitalOcean is their <a href="https://do-community.github.io/dns-tool/">community DNS tools</a>. For this specific set of tools, we used Vue and the Cloudflare DNS-over-HTTPS API. This made the tool very portable and easy to insert into the legacy Rails site at the time and the more modern version later down the road.
     icon: digitalocean.svg
