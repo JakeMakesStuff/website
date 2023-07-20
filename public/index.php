@@ -175,7 +175,7 @@
                     }
 
                     if ($GLOBALS["cv"]) {
-                        echo('<div style="page-break-before: always; padding-top: 3em">');
+                        echo('<div style="padding-top: 3em">');
                         renderProjects();
                         echo('</div><div style="page-break-before: always; padding-top: 3em">');
                         renderEducation();
