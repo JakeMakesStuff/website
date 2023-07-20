@@ -112,7 +112,8 @@
                         $left = $additional_info["left"];
                     }
                     echo("<hr>");
-                    $btn = sprintf('<a class="button is-link" href="%s"> Learn more about %s</a>', $additional_info['url'], explode(" ", $job)[0]));
+                    $job_split = explode(" ", $job)[0];
+                    $btn = sprintf('<a class="button is-link" href="%s"> Learn more about %s</a>', $additional_info['url'], $job_split);
                     echo('<div class="columns"><div class="column">'. "<h2 class=\"subtitle\"><a href=\"". $additional_info["url"] . "\">" . $job . " (" .  $additional_info["started"] . "-" . $left . ")</a></h2>" . $additional_info['description']);
                     if (!$GLOBALS["cv"]) {
                         echo('<br><br>' . $btn);
