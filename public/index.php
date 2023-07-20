@@ -87,7 +87,9 @@
                 <h1 class="title"><?php echo $GLOBALS["portfolio_yml"]['name'] ?></h1>
                 <h2 class="subtitle"><?php echo $GLOBALS["portfolio_yml"]['description'] ?></h2>
                 <?php
-                    if (!$GLOBALS["cv"]) {
+                    if ($GLOBALS["cv"]) {
+                        echo(sprintf('<p>%s &bull; %s</p>', $GLOBALS["portfolio_yml"]['email'], $GLOBALS["portfolio_yml"]['phone']));
+                    } else {
                         if ($GLOBALS["portfolio_yml"]['enable_contact']) {
                             echo '<a class="button is-link" href="javascript:openForm()" style="margin-right: 5px">Contact</a>';
                         }
@@ -110,7 +112,7 @@
                         $left = $additional_info["left"];
                     }
                     echo("<hr>");
-                    $btn = sprintf('<a class="button is-link" href="%s"> Learn more about %s</a>', $additional_info['url'], $job);
+                    $btn = sprintf('<a class="button is-link" href="%s"> Learn more about %s</a>', $additional_info['url'], explode(" ", $job)[0]));
                     echo('<div class="columns"><div class="column">'. "<h2 class=\"subtitle\"><a href=\"". $additional_info["url"] . "\">" . $job . " (" .  $additional_info["started"] . "-" . $left . ")</a></h2>" . $additional_info['description']);
                     if (!$GLOBALS["cv"]) {
                         echo('<br><br>' . $btn);

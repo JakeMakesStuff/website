@@ -3,6 +3,10 @@ url: https://astrid.place/
 description: Hi! My name is Astrid Gealer and I am a passionate developer from the UK who has experience with full stack development.
 # The name, URL and description.
 
+email: astrid@gealer.email
+phone: '+447765864239'
+# Contact information.
+
 buttons: []
 # The buttons for the top of the website.
 
