@@ -7,7 +7,7 @@ buttons: []
 # The buttons for the top of the website.
 
 work:
-  Citi:
+  'Citi (Software Engineer)':
     started: 2023
     left: null
     url: https://www.citi.com/
@@ -15,15 +15,15 @@ work:
     icon: bank-citigroup.png
   # Information about Citibank.
 
-  Krystal:
+  'Krystal (Software Engineer)':
     started: 2021
     left: 2022
     url: https://k.io/
-    description: My job at Krystal is writing backend solutions primarily in Go. An example of my work is working on the <a href="https://github.com/krystal/katapult-cli">Katapult CLI</a> and working on Koru, our work in progress alternative to cPanel. We use a variety of technologies such as gRPC to power this in the backend.
+    description: My job at Krystal was writing backend solutions primarily in Go. An example of my work was working on the <a href="https://github.com/krystal/katapult-cli">Katapult CLI</a> and working on Koru, our work in progress alternative to cPanel. We used a variety of technologies such as gRPC to power this in the backend, and I implemented various bits of logic between both the Go and Rails sides such as the filesystem logic.
     icon: krystal.jpeg
   # Information about Krystal.
 
-  DigitalOcean:
+  'DigitalOcean (Contractual Software Engineer)':
     started: 2019
     left: 2021
     url: https://digitalocean.com
