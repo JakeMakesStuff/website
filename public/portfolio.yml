@@ -59,14 +59,6 @@ qualifications:
       "L3 Computer Science - BTEC (Extended Certificate)": Distinction* Distinction* Distinction* (D*D*D*)
   # Information about me at City of Bristol College.
 
-  Northumbria University:
-    started: 2020
-    graduated: null
-    url: "https://northumbria.ac.uk/"
-    grades:
-      "Computer Science BSc Hons": DNF due to personal issues
-  # Information about Northumbria University
-
 projects:
   Auttaja:
     icon: auttaja.svg
