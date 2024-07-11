@@ -13,9 +13,9 @@ buttons: []
 work:
   'Citi (Software Engineer)':
     started: 'January 2023'
-    left: null
+    left: '2024'
     url: https://www.citi.com/
-    description: My job involves writing code to help developers inside Citi.
+    description: My job involved writing code to help developers inside Citi.
     icon: bank-citigroup.png
   # Information about Citibank.
 
