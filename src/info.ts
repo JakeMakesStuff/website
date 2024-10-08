@@ -4,5 +4,5 @@ export const description =
 export const url = "https://astrid.place";
 export const secondLine = `
     Owns Web Scale Software Ltd (currently contracted by
-    <a class="hover:underline" href="https://neon.tech">Neon</a>, and running
-    <a class="hover:underline" href="https://clocktick.dev">Clocktick</a>)`;
+    <a class="underline" href="https://neon.tech">Neon</a>, and running
+    <a class="underline" href="https://clocktick.dev">Clocktick</a>)`;
