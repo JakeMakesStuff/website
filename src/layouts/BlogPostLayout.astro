@@ -1,0 +1,27 @@
+---
+import BlogRootLayout from "./BlogRootLayout.astro";
+
+interface Props {
+    frontmatter: {
+        title: string;
+        description: string;
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BlogRootLayout
+    title={frontmatter.title}
+    description={frontmatter.description}
+>
+    <style>
+        /* I am way too arsey about this. */
+        .prose {
+            color: unset;
+        }
+    </style>
+    <article class="prose dark:prose-invert max-w-none">
+        <slot />
+    </article>
+</BlogRootLayout>

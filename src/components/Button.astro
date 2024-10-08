@@ -1,0 +1,15 @@
+---
+interface Props {
+    text: string;
+    id?: string;
+}
+
+const { text, id } = Astro.props;
+---
+
+<button
+    class="p-3 border-2 border-black dark:border-white rounded-md select-none"
+    id={id}
+>
+    <span class="text-lg font-bold">{text}</span>
+</button>

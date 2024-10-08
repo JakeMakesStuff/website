@@ -1,0 +1,35 @@
+---
+import { name, description, url } from "../info";
+import "@fontsource/jetbrains-mono";
+
+interface Props {
+	title?: string;
+	descriptionOverride?: string;
+}
+
+const { title, descriptionOverride } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={descriptionOverride || description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={descriptionOverride || description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={url} />
+		<link rel="shortcut icon" href="/favicon.png" />
+		<title>{name}{title && ` | ${title}`}</title>
+	</head>
+
+	<body class="dark:bg-black dark:text-white">
+		<style>
+			* {
+				font-family: "JetBrains Mono", monospace;
+			}
+		</style>
+		<slot />
+	</body>
+</html>

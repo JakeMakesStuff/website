@@ -1,9 +1,0 @@
-name = "astrid-place"
-type = "webpack"
-account_id = "ac2dd89af834dd17d7f5cf5df3789f08"
-workers_dev = false
-route = "astrid.place/*"
-zone_id = "ca363b7ac71cf95c952b6c24e9300c0a"
-
-[site]
-bucket = "./public"
