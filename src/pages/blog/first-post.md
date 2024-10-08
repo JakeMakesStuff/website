@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "My first blog post on this site!"
 description: "Hello World! This is my first blog post since changing my name!"
-date: "8 Oct 2024"
+date: "8 Oct 2024 02:00 UTC"
 ---
 
 Hello World! I thought that I would now give the whole blogging thing a restart. After I came out, I kind of left my old blog to die (just as well really, it was a old Ghost instance) with my old name domain, and to be fair, you weren't missing out on much anyway since I didn't post there much. My old website that used to be on this domain was a huge complex bunch of PHP. It survived since 2017 in some form or another, going from being hosted on cPanel to being piped into a HTML file and uploaded to Cloudflare Workers.
