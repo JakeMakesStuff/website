@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "Why Automattic is actively hurting their ecosystem"
 description: "WordPress is important. You can't play chicken with the security of millions of sites consequence free."
-date: "8 Oct 2024 23:30 UTC"
+date: "8 Oct 2024 21:30 UTC"
 ---
 
 WordPress is an incredibly important bit of software. They power millions of websites, everything from the White House to your average cooking website is powered by it. Alongside this userbase, there are plenty of people that don't want to manage running their own websites. This is totally understandable, some people just want to get on with running their business. To deal with this, a cottage industry of agencies that en masse manage hundreds if not thousands of WordPress sites popped up. In my opinion, the way Automattic is handling a quite valid complaint against WP Engine threatens the livelihood of all Automattic employees and people that supply plugins for this industry.
