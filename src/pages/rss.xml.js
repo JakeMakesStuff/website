@@ -3,7 +3,7 @@ import { url } from "../info";
 
 const blogPosts = import.meta.glob("./blog/*.md");
 
-export async function GET(context) {
+export async function GET() {
     return rss({
         title: "Astrid's Blog",
         description: "A blog about my life and thoughts on tech",
