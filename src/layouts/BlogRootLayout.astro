@@ -1,5 +1,6 @@
 ---
 import MainLayout from "./MainLayout.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
     title: string;
@@ -11,6 +12,9 @@ const { title, description, hideBackButton } = Astro.props;
 ---
 
 <MainLayout title={title} descriptionOverride={description}>
+    <slot:head>
+        <ViewTransitions />
+    </slot:head>
     <div class="max-w-6xl mx-auto p-4">
         <header class="py-4 border-b-2 border-black dark:border-white">
             <h1 class="text-4xl font-bold">{title}</h1>

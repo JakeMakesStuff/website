@@ -8,4 +8,7 @@ export default defineConfig({
     output: "hybrid",
     integrations: [tailwind()],
     adapter: vercelServerless(),
+    prefetch: {
+        prefetchAll: true,
+    },
 });

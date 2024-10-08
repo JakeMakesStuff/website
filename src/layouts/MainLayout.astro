@@ -10,7 +10,7 @@ interface Props {
 const { title, descriptionOverride } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.png" />
@@ -22,6 +22,7 @@ const { title, descriptionOverride } = Astro.props;
 		<meta property="og:url" content={url} />
 		<link rel="shortcut icon" href="/favicon.png" />
 		<title>{name}{title && ` | ${title}`}</title>
+		<slot name="head" />
 	</head>
 
 	<body class="dark:bg-black dark:text-white">
