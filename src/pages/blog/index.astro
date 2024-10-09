@@ -1,7 +1,7 @@
 ---
 import BlogRootLayout from "../../layouts/BlogRootLayout.astro";
 
-const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
+const allPosts = (await Astro.glob("./*.md")).sort((a, b) => {
     const dateA = new Date(a.frontmatter.date as string);
     const dateB = new Date(b.frontmatter.date as string);
     return dateB.getTime() - dateA.getTime();
@@ -21,16 +21,15 @@ const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
                         {post.frontmatter.title}
                     </a>
                 </h2>
-                <p class="text-lg my-2">{
-                    new Date(post.frontmatter.date as string).toLocaleDateString(
-                        'en-US',
-                        {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                        }
-                    )
-                }</p>
+                <p class="text-lg my-2">
+                    {new Date(
+                        post.frontmatter.date as string,
+                    ).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}
+                </p>
                 <p>{post.frontmatter.description}</p>
             </article>
         ))

@@ -34,16 +34,24 @@ const { title, description, hideBackButton } = Astro.props;
             <h1 class="text-4xl font-bold">{title}</h1>
             <p class="text-lg my-4 print:mb-0">{description}</p>
             <p class="flex print:hidden flex-wrap">
-                {!hideBackButton && (
-                    <><a href="/blog" class="hover:underline">
-                        ← Other blog posts
-                    </a><span class="mx-2"> | </span></>
-                )}
-                <a href="/" class="hover:underline">
-                    🖊 Contact Me
-                </a>
+                {
+                    !hideBackButton && (
+                        <>
+                            <>
+                                <a href="/blog" class="hover:underline">
+                                    ← Other blog posts
+                                </a>
+                                <span class="mx-2"> | </span>
+                            </>
+                        </>
+                    )
+                }
+                <a href="/" class="hover:underline"> 🖊 Contact Me </a>
                 <span class="mx-2"> | </span>
-                <a href={safeJoin(url.replace(/^https\:/, "feed:"), "rss.xml")} class="hover:underline">
+                <a
+                    href={safeJoin(url.replace(/^https\:/, "feed:"), "rss.xml")}
+                    class="hover:underline"
+                >
                     📡 RSS Feed
                 </a>
                 <span class="mx-2"> | </span>
@@ -61,7 +69,9 @@ const { title, description, hideBackButton } = Astro.props;
 <script>
     document.addEventListener("astro:page-load", () => {
         // Get the toggle button.
-        const dyslexiaToggle = document.getElementById("dyslexia_toggle") as HTMLButtonElement;
+        const dyslexiaToggle = document.getElementById(
+            "dyslexia_toggle",
+        ) as HTMLButtonElement;
 
         // Defines the current state.
         let dyslexiaEnabled = false;

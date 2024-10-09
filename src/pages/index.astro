@@ -5,136 +5,153 @@ import { description, name, secondLine } from "../info";
 ---
 
 <MainLayout>
-	<div class="justify-center items-center flex h-screen">
-		<div class="text-center max-w-6xl block mx-4">
-			<h1 class="text-4xl font-bold">{name}</h1>
-			<h2 class="text-2xl mt-4">{description}</h2>
-			<h3 class="text-xl mt-4" set:html={secondLine}></h3>
+    <div class="justify-center items-center flex h-screen">
+        <div class="text-center max-w-6xl block mx-4">
+            <h1 class="text-4xl font-bold">{name}</h1>
+            <h2 class="text-2xl mt-4">{description}</h2>
+            <h3 class="text-xl mt-4" set:html={secondLine} />
 
-			<div class="flex mt-6 space-x-4 justify-center">
-				<form action="/blog" class="flex-col" method="get">
-					<Button text="Blog" />		
-				</form>
-				<span class="flex-col">
-					<Button text="Contact" id="contact_button" />
-				</span>
-				<form action="https://discord.gg/nSSUEKP" class="flex-col" method="get">
-					<Button text="Discord" />
-				</form>
-			</div>
-		</div>	
-	</div>
+            <div class="flex mt-6 space-x-4 justify-center">
+                <form action="/blog" class="flex-col" method="get">
+                    <Button text="Blog" />
+                </form>
+                <span class="flex-col">
+                    <Button text="Contact" id="contact_button" />
+                </span>
+                <form
+                    action="https://discord.gg/nSSUEKP"
+                    class="flex-col"
+                    method="get"
+                >
+                    <Button text="Discord" />
+                </form>
+            </div>
+        </div>
+    </div>
 
-	<dialog id="modal" class="fixed inset-0 z-50">
-        <div class="fixed inset-0 bg-black bg-opacity-50" />
+    <dialog id="modal" class="fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black bg-opacity-50"></div>
         <div class="fixed inset-0 flex items-center justify-center">
             <div
                 class="bg-white dark:bg-gray-900 dark:text-white p-4 mx-4 rounded-lg max-w-2xl"
                 id="modal_content"
             >
-				<header>
-					<div class="flex space-x-3">
-						<form method="dialog">
-							<button aria-label="Close" class="text-2xl">✖</button>
-						</form>
-						<h1 class="text-2xl font-bold">Contact Me</h1>
-					</div>
-				</header>
-				<hr class="my-4 dark:border-gray-600 border-gray-300" />
-				<p class="text-lg">
-					Want to contact me personally? Write a message here and presuming it isn't spam,
-					I'll get back to you as soon as possible!
-				</p>
+                <header>
+                    <div class="flex space-x-3">
+                        <form method="dialog">
+                            <button aria-label="Close" class="text-2xl">
+                                ✖
+                            </button>
+                        </form>
+                        <h1 class="text-2xl font-bold">Contact Me</h1>
+                    </div>
+                </header>
+                <hr class="my-4 dark:border-gray-600 border-gray-300" />
+                <p class="text-lg">
+                    Want to contact me personally? Write a message here and
+                    presuming it isn't spam, I'll get back to you as soon as
+                    possible!
+                </p>
 
-				<div id="error" class="hidden p-4 bg-red-600 text-white rounded-md mt-4 text-lg">
-				</div>
+                <div
+                    id="error"
+                    class="hidden p-4 bg-red-600 text-white rounded-md mt-4 text-lg"
+                >
+                </div>
 
-				<form method="post" id="contact_form">
-					<input
-						type="email"
-						name="email"
-						placeholder="Your Email"
-						class="p-2 border-2 border-gray-300 dark:border-gray-600 rounded-md w-full mt-4 dark:bg-gray-900"
-						required
-					/>
-					<textarea
-						name="message"
-						placeholder="Your Message"
-						class="p-2 border-2 border-gray-300 dark:border-gray-600 rounded-md w-full mt-4 dark:bg-gray-900"
-						required
-					></textarea>
-					<div class="cf-turnstile mt-4" data-sitekey={process.env.TURNSTILE_SITE_KEY}></div>
-					<button
-						type="submit"
-						class="p-2 border-2 border-black dark:border-white rounded-md w-full mt-4"
-					>
-						Send
-					</button>
-				</form>
-			</div>
-		</div>
-	</dialog>
+                <form method="post" id="contact_form">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        class="p-2 border-2 border-gray-300 dark:border-gray-600 rounded-md w-full mt-4 dark:bg-gray-900"
+                        required
+                    />
+                    <textarea
+                        name="message"
+                        placeholder="Your Message"
+                        class="p-2 border-2 border-gray-300 dark:border-gray-600 rounded-md w-full mt-4 dark:bg-gray-900"
+                        required></textarea>
+                    <div
+                        class="cf-turnstile mt-4"
+                        data-sitekey={process.env.TURNSTILE_SITE_KEY}
+                    >
+                    </div>
+                    <button
+                        type="submit"
+                        class="p-2 border-2 border-black dark:border-white rounded-md w-full mt-4"
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </MainLayout>
 
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script
+    is:inline
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer></script>
 
 <script>
-	import { actions } from "astro:actions";
+    import { actions } from "astro:actions";
 
-	// Get the modal from the DOM once.
-	const modal = document.getElementById("modal") as HTMLDialogElement;
+    // Get the modal from the DOM once.
+    const modal = document.getElementById("modal") as HTMLDialogElement;
 
-	// Open the modal when the contact button is clicked.
-	document.getElementById("contact_button")!.onclick = () => {
-		modal.showModal();
-	};
+    // Open the modal when the contact button is clicked.
+    document.getElementById("contact_button")!.onclick = () => {
+        modal.showModal();
+    };
 
-	// Close the modal when the user clicks on it.
-	modal.onclick = () => {
-		modal.close();
-	};
+    // Close the modal when the user clicks on it.
+    modal.onclick = () => {
+        modal.close();
+    };
 
-	// Prevent the modal from closing when the user clicks on the content.
-	document.getElementById("modal_content")!.onclick = (event) => {
-		event.stopPropagation();
-	};
+    // Prevent the modal from closing when the user clicks on the content.
+    document.getElementById("modal_content")!.onclick = (event) => {
+        event.stopPropagation();
+    };
 
-	// Hides all messages in the modal.
-	const hideMessages = () => {
-		document.getElementById("error")!.classList.add("hidden");
-	};
+    // Hides all messages in the modal.
+    const hideMessages = () => {
+        document.getElementById("error")!.classList.add("hidden");
+    };
 
-	// Shows the message in the modal.
-	const showError = (error: string) => {
-		const message = document.getElementById("error")!;
-		message.textContent = error;
-		message.classList.remove("hidden");
-	};
+    // Shows the message in the modal.
+    const showError = (error: string) => {
+        const message = document.getElementById("error")!;
+        message.textContent = error;
+        message.classList.remove("hidden");
+    };
 
-	// Handle the form submission.
-	document.getElementById("contact_form")!.onsubmit = async (event) => {
-		event.preventDefault();
-		hideMessages();
+    // Handle the form submission.
+    document.getElementById("contact_form")!.onsubmit = async (event) => {
+        event.preventDefault();
+        hideMessages();
 
-		const form = event.target as HTMLFormElement;
-		const formData = new FormData(form);
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
 
-		const { data, error } = await actions.submitContactForm({
-			email: formData.get("email") as string,
-			message: formData.get("message") as string,
-			token: (window as any).turnstile.getResponse(),
-		});
-		if (error) {
-			showError(error.message);
-		} else {
-			const { success, error } = data;
-			if (success) {
-				form.reset();
-				(window as any).turnstile.reset();
-				modal.close();
-			} else {
-				showError(error);
-			}
-		}
-	};
+        const { data, error } = await actions.submitContactForm({
+            email: formData.get("email") as string,
+            message: formData.get("message") as string,
+            token: (window as any).turnstile.getResponse(),
+        });
+        if (error) {
+            showError(error.message);
+        } else {
+            const { success, error } = data;
+            if (success) {
+                form.reset();
+                (window as any).turnstile.reset();
+                modal.close();
+            } else {
+                showError(error);
+            }
+        }
+    };
 </script>

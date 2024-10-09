@@ -25,7 +25,7 @@ Around this time, WordPress under Matt's leadership killed access for WP Engine 
 
 After this happened, Matt decided to take it as an opportunity to go after anyone in testomonials for WP Engine:
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <div class="w-full flex justify-center">
     <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Hey <a href="https://twitter.com/mcuban?ref_src=twsrc%5Etfw">@mcuban</a>, have you been following all the scammy stuff <a href="https://twitter.com/wpengine?ref_src=twsrc%5Etfw">@wpengine</a> and <a href="https://twitter.com/LeeEWittlinger?ref_src=twsrc%5Etfw">@LeeEWittlinger</a> have been doing? They’re now trying to use you as a customer to burnish their image. Happy to migrate your sites, it’ll take a few hours. We’ll match whatever they were charging you.</p>&mdash; Matt Mullenweg (@photomatt) <a href="https://twitter.com/photomatt/status/1841283504799133800?ref_src=twsrc%5Etfw">October 2, 2024</a></blockquote>
@@ -53,9 +53,9 @@ Then the real reason for this tweet came out via this utterly distasteful tweet 
 
 To be clear, I don't know if the vulnerability was found to get back at WP Engine (although I have my suspicions), but there are several incredibly bad things about this:
 
-- During the blocking from the update servers, WP Engine staff were also blocked from pushing the update. This meant that for a while, it was unclear if a patch would even be delivered through conventional means.
-- This created major concern that patching all of these hundreds or thousands of installs would require manual intervention since it seemed for a while like they were not going to be able to push the security update to the WordPress store.
-- It goes incredibly against the spirit of responsible disclosure to brag about how people won't be using a plugin soon whilst choking their ability to release patches.
+-   During the blocking from the update servers, WP Engine staff were also blocked from pushing the update. This meant that for a while, it was unclear if a patch would even be delivered through conventional means.
+-   This created major concern that patching all of these hundreds or thousands of installs would require manual intervention since it seemed for a while like they were not going to be able to push the security update to the WordPress store.
+-   It goes incredibly against the spirit of responsible disclosure to brag about how people won't be using a plugin soon whilst choking their ability to release patches.
 
 Clearly, Automattic agreed they overstepped the mark here, deleting that tweet and allowing WP Engine to send in a patch which they published on the store:
 

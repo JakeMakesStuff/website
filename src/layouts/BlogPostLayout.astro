@@ -11,10 +11,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<BlogRootLayout
-    title={frontmatter.title}
-    description={frontmatter.description}
->
+<BlogRootLayout title={frontmatter.title} description={frontmatter.description}>
     <style>
         /* I am way too arsey about this. */
         .prose {
