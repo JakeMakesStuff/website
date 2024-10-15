@@ -8,7 +8,7 @@ export default {
                     css: {
                         h2: {
                             marginTop: "1em",
-                            marginBottom: "0.5em",
+                            marginBottom: "1em",
                         },
                         "--tw-prose-bullets": "black",
                     },
