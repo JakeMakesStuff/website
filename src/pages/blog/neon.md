@@ -5,7 +5,7 @@ description: "How to use Rails to setup a multi-tenant project within Ruby on Ra
 date: "16 Oct 2024 17:00 GMT"
 ---
 
-> **Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post.
+**Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post. This is an advert.
 
 In this tutorial, we are going to build a very notes application using a multi-tenant database architecture with Ruby on Rails. This means that each user has their own database that can individually scale.
 
