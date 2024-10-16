@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: "Setting up a multi-tenant database project on Rails"
+title: "Setting up a multi-tenant database project on Rails using Neon"
 description: "How to use Rails to setup a multi-tenant project within Ruby on Rails."
 date: "16 Oct 2024 17:00 GMT"
 ---
