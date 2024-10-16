@@ -60,7 +60,7 @@ From here, we can run `rails db:migrate` to setup the database with the ActiveRe
 
 From here, you should have a working rails environment that we can develop with:
 
-IMAGE_HERE
+![Rails hello world screen](/images/neon/hello_world_rails.png)
 
 ## Making the User model and tieing the multi-DB architecture into it
 
@@ -249,8 +249,9 @@ end
 
 Now we should go over to the branch we want to base off (in this case, `main`, but in staging this might be `develop` or something else) and select it on the dashboard. We should then add a role:
 
-ROLE_DATABASE_PAGE_HERE
-ROLE_CREATE_HERE
+![The roles and database page](/images/neon/role_database_page.png)
+
+![Role create page](/images/neon/role_create.png)
 
 When you get to the success screen, you should add this into the `.env.development` file:
 
@@ -262,7 +263,7 @@ NEON_ROLE_PASSWORD=<role password>
 
 Now we should make the user database and set the owner to this role:
 
-DB_CREATE_HERE
+![DB create page](/images/neon/db_create.png)
 
 Now we should set the database name and other Neon information (you can find the project ID in settings and API tokens in account settings):
 
