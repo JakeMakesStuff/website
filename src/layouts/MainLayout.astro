@@ -16,10 +16,24 @@ const { title, descriptionOverride } = Astro.props;
         <link rel="icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={descriptionOverride || description} />
+        <link
+            rel="alternate"
+            title="Astrid's Blog"
+            type="application/rss+xml"
+            href="/rss.xml"
+        />
         <meta
             property="og:title"
-            content={title ? `${name} | ${title}` : name}
+            content={title || name}
         />
+        {
+            title && (
+                <meta
+                    property="og:author"
+                    content={name}
+                />
+            )
+        }
         <meta
             property="og:description"
             content={descriptionOverride || description}

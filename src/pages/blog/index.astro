@@ -1,9 +1,33 @@
 ---
 import BlogRootLayout from "../../layouts/BlogRootLayout.astro";
+import child_process from "child_process";
 
-const allPosts = (await Astro.glob("./*.md")).sort((a, b) => {
-    const dateA = new Date(a.frontmatter.date as string);
-    const dateB = new Date(b.frontmatter.date as string);
+// Get all the posts.
+let allPosts = await Astro.glob("./*.md");
+
+// Inject the created and updated dates from Git.
+for (const p of allPosts) {
+    try {
+        // Get the time this was first ever created.
+        const created = child_process.execSync(
+            `git log --diff-filter=A --format=%aI -- ${p.file}`,
+        );
+        p.frontmatter.created = created.toString().trim();
+
+        // Get the time this was last updated. This would be the last commit that had 'update:' at the beginning of the commit message.
+        const updated = child_process.execSync(
+            `git log --grep='^update:' --format=%aI -- ${p.file}`,
+        );
+        p.frontmatter.updated = updated.toString().trim() || p.frontmatter.created;
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+// Sort the posts by their date.
+allPosts = allPosts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.updated as string);
+    const dateB = new Date(b.frontmatter.updated as string);
     return dateB.getTime() - dateA.getTime();
 });
 ---
@@ -14,24 +38,43 @@ const allPosts = (await Astro.glob("./*.md")).sort((a, b) => {
     hideBackButton
 >
     {
-        allPosts.map((post) => (
-            <article class="my-8">
-                <h2 class="text-2xl font-bold">
-                    <a href={post.url} class="hover:underline">
-                        {post.frontmatter.title}
-                    </a>
-                </h2>
-                <p class="text-lg my-2">
-                    {new Date(
-                        post.frontmatter.date as string,
-                    ).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                    })}
-                </p>
-                <p>{post.frontmatter.description}</p>
-            </article>
-        ))
+        allPosts.map((post) => {
+            const created = new Date(post.frontmatter.created as string);
+            const updated = new Date(post.frontmatter.updated as string);
+            const same = created.getDay() === updated.getDay() &&
+                created.getMonth() === updated.getMonth() &&
+                created.getFullYear() === updated.getFullYear();
+
+            return (
+                <article class="my-8">
+                    <h2 class="text-2xl font-bold">
+                        <a href={post.url} class="hover:underline">
+                            {post.frontmatter.title}
+                        </a>
+                    </h2>
+                    <p class="text-lg my-2">
+                        <span class="font-bold">Created:</span> {created.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        })}
+
+                        {
+                            !same && (
+                                <>
+                                    <span class="mx-2 select-none">|</span>
+                                    <span class="font-bold">Updated:</span> {updated.toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    })}
+                                </>
+                            )
+                        }
+                    </p>
+                    <p>{post.frontmatter.description}</p>
+                </article>
+            );
+        })
     }
 </BlogRootLayout>
