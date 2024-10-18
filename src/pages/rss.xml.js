@@ -1,3 +1,4 @@
+import child_process from "child_process";
 import rss from "@astrojs/rss";
 import { url } from "../info";
 
@@ -10,11 +11,21 @@ export async function GET() {
         site: url,
         items: await Promise.all(
             Object.entries(blogPosts).map(async ([path, postPromise]) => {
+                // Get the date from the git history.
+                const gitDate = child_process.execSync(
+                    `git log --diff-filter=A --format=%aI -- ./src/pages/${path}`,
+                    {
+                        cwd: process.cwd(),
+                    },
+                );
+                const date = new Date(gitDate.toString().trim());
+
+                // Load the post.
                 const post = await postPromise();
                 return {
                     title: post.frontmatter.title,
                     description: post.frontmatter.description,
-                    pubDate: post.frontmatter.date,
+                    pubDate: date,
                     link: path
                         .replace(/\.md$/, "")
                         .replace(/^\.\/blog\//, "/blog/"),

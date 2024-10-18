@@ -2,7 +2,6 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "POTS sucks (or why you should get vaccinated)"
 description: "POTS really sucks. If you can maintain your Covid vaccines, you should. Yes, it is still real."
-date: "15 Oct 2024 03:07 GMT"
 ---
 
 Around mid 2020, I got Covid very severely. The outcome of this is a cautionary tale for why you should get your Covid vaccine. Honestly, I am doing the best I can with the illness I now have, but it is really debilitating. Don't shit on people doing their part to stop this spreading further.
