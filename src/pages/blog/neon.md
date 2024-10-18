@@ -2,7 +2,6 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "Setting up a multi-tenant database project on Rails using Neon"
 description: "How to setup a multi-tenant project within Ruby on Rails."
-date: "16 Oct 2024 17:00 GMT"
 ---
 
 **Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post. This is an advert.
