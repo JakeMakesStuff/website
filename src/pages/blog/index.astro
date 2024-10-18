@@ -14,11 +14,11 @@ for (const p of allPosts) {
         );
         p.frontmatter.created = created.toString().trim();
 
-        // Get the time this was last updated.
+        // Get the time this was last updated. This would be the last commit that had 'update:' at the beginning of the commit message.
         const updated = child_process.execSync(
-            `git log -1 --format=%aI -- ${p.file}`,
+            `git log --grep='^update:' --format=%aI -- ${p.file}`,
         );
-        p.frontmatter.updated = updated.toString().trim();
+        p.frontmatter.updated = updated.toString().trim() || p.frontmatter.created;
     } catch (e) {
         console.error(e);
     }
