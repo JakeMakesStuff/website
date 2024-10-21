@@ -490,7 +490,7 @@ And then make `app/views/notes/show.html.erb`:
 </p>
 ```
 
-You now have a basic multi-tenant notes application using Ruby on Rails!
+You now have a basic database-per-tenant notes application using Ruby on Rails!
 
 ## Conclusion
 
