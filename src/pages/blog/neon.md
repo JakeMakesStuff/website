@@ -16,7 +16,7 @@ Firstly, make sure you have at least Ruby 3.1 installed:
 ruby 3.2.3 (2024-01-18 revision 52bb2ac0a6) [x86_64-linux-gnu]
 ```
 
-If you do not have a conpatible version, you may need to install rbenv and then use that to get the latest Ruby release. `rbenv` is suggested to stop any weird behaviours that a system package manager may cause.
+If you do not have a compatible version, you may need to install rbenv and then use that to get the latest Ruby release. `rbenv` is suggested to stop any weird behaviours that a system package manager may cause.
 
 At this point, install the `rails` gem using `gem install rails`.
 From here, we can make a new Rails project with `rails new --database=postgresql note-taking`. We will make it using Postgres as the database so that we can setup Neon easily:
