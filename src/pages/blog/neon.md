@@ -116,7 +116,7 @@ To do this, we are going to need to make a few network requests to the Neon API.
 gem 'httpx', '~> 1.3.1'
 ```
 
-To do this, we want to create a database and tie it to this record until it is destroyed. In case we later want to make a database per another entity (for example, one per organisation), we will make this a concern that we can share across anything that needs it. To do this, we will remove `app/models/concerns/.keep` and create a `multi_tenant.rb` file there to manage this:
+We want to create a database and tie it to this record until it is destroyed. In case we later want to make a database per another entity (for example, one per organisation), we will make this a concern that we can share across anything that needs it. To do this, we will remove `app/models/concerns/.keep` and create a `multi_tenant.rb` file there to manage this:
 
 ```rb
 require 'httpx'
