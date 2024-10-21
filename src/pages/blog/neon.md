@@ -6,7 +6,7 @@ description: "How to setup a multi-tenant project within Ruby on Rails."
 
 **Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post. This is an advert.
 
-In this tutorial, we are going to build a basic notes application using a multi-tenant database architecture with Ruby on Rails. This means that each user has their own database that can individually scale.
+In this tutorial, we are going to build a basic notes application using a database-per-user database architecture with Ruby on Rails. This means that each user has their own database that can individually scale.
 
 ## Installation
 
