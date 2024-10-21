@@ -255,7 +255,7 @@ Now we should go over to the branch we want to base off (in this case, `main`, b
 When you get to the success screen, you should add this into the `.env.development` file:
 
 ```
-# Defines the role for the multi-tenant architecture.
+# Defines the role for the database-per-tenant architecture.
 NEON_ROLE_NAME=<role name>
 NEON_ROLE_PASSWORD=<role password>
 ```
