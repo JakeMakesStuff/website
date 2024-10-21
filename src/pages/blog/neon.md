@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: "Setting up a database-per-tenant project on Rails using Neon"
-description: "How to setup a multi-tenant project within Ruby on Rails."
+description: "How to set up a Rails project where each user's data is stored in a separate Postgres database on Neon."
 ---
 
 **Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post. This is an advert.
