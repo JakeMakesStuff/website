@@ -101,7 +101,9 @@ Rails.application.config.filter_parameters += [
 ]
 ```
 
-So now we have our users, but what about our notes? There are several advantages here to a multi-tenant architecture:
+So now we have our users, but what about our notes? Let's add logic to put each user's notes in a separate Postgres database.
+
+There are several advantages to  this database-per-tenant architecture:
 
 - **Security by Design:** There is significantly less risk of harm due to accidentally destroying/fetching other customers data. This is because instead of worrying about multiple columns when you do things to a users notes, you just have to think about one. Additionally, you don't have to worry about the risk of someone finding another users notes by decrementing their own note ID since the users notes are pulled from the signed in record.
 - **Data Compliance:** If in the future we wanted to deploy in a region that the user specifies for compliance reasons (for example, an American user might want to deploy in America if you have a point of presence there due to latency reasons, but a European user might want to deploy in Europe due to Neon's GDPR compliance), this is a drop down box away with this architecture. Additionally, data compliance is significantly easier here. Want to add GDPR exports? Just dump out the entire database. Want to delete a user without worrying about errors due to foreign keys within your large database? Just delete the database (and we will tie this to the User record in this tutorial).
