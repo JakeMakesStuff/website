@@ -107,7 +107,7 @@ So now we have our users, but what about our notes? There are several advantages
 - **Data Compliance:** If in the future we wanted to deploy in a region that the user specifies for compliance reasons (for example, an American user might want to deploy in America if you have a point of presence there due to latency reasons, but a European user might want to deploy in Europe due to Neon's GDPR compliance), this is a drop down box away with this architecture. Additionally, data compliance is significantly easier here. Want to add GDPR exports? Just dump out the entire database. Want to delete a user without worrying about errors due to foreign keys within your large database? Just delete the database (and we will tie this to the User record in this tutorial).
 - **Competitive Advantage:** With the multi-database model, you don't have to worry about leaking information that whilst it may not be sensitive to your users, is quite revealing about your company. For example, in this case, you might be able to figure out the companies user retention by taking a publicly sent customer count and then comparing it to the note ID since it is auto-incrementing with ActiveRecord.
 
-The main tradeoff with this model is that migrations become more complex, although this can be managed with careful branching and scripting.
+The main tradeoff with this model is that migrations become more complex, although we'll show how this can be managed with careful branching and scripting.
 
 To do this, we are going to need to make a few network requests to the Neon API. Since `net/http` is capped to HTTP/1.1, we are going to use `httpx` to do this faster. Add this to your `Gemfile` and then run `bundle`:
 
