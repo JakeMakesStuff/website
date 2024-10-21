@@ -27,7 +27,7 @@ From here, we can make a new Rails project with `rails new --database=postgresql
 ...
 ```
 
-After this is done, we should have a Hotwired application running on the latest release of Rails. Note to use Postgres, you may need to install your OS's dependency for it (`libpg-dev` in the case of Linux).
+After this is done, we should have a Hotwired application running on the latest release of Rails. Note: to use Postgres, you may need to install your OS's dependency for it (`libpg-dev` in the case of Linux).
 
 ## Configuring the users database
 
