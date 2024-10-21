@@ -494,4 +494,4 @@ You now have a basic multi-tenant notes application using Ruby on Rails!
 
 ## Conclusion
 
-In conclusion, whilst this method of database storage still has its compromises which you need to consider, this shows a new way of storing data that offers different data protection, data integrity, and potentially cost benefits since each user can be individually scaled up and down without needing to worry about noisy neighbours.
+In conclusion, whilst this method of database storage still has its tradeoffs which you need to consider, this shows a new way of storing data that offers different data protection, data integrity, and potentially cost benefits since each user can be individually scaled up and down without needing to worry about noisy neighbours.
