@@ -4,7 +4,7 @@ title: "Setting up a database-per-tenant project on Rails using Neon"
 description: "How to set up a Rails project where each user's data is stored in a separate Postgres database on Neon."
 ---
 
-**Legal disclosure:** My company (Web Scale Software Ltd) was paid by Neon to write this blog post. This is an advert.
+**Legal disclosure:** Neon commissioned me to develop the following db-per-tenant migration tool and blog post.
 
 In this tutorial, we are going to build a basic notes application using a database-per-user database architecture with Ruby on Rails. This means that each user has their own database that can individually scale.
 
