@@ -277,7 +277,7 @@ NEON_API_TOKEN=<api token here>
 NEON_PROJECT_ID=<project ID here>
 ```
 
-Great! Now we have a User that repersents the lifetime of the database tenant. When the user is destroyed, the database will be too.
+Great! Now we have a User that represents the lifetime of the database tenant. When the user is destroyed, the database will be too.
 
 ## Building the Note record and handling migrations
 
