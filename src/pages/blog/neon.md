@@ -377,7 +377,7 @@ note-taking(dev)> User.first!
 => #<User id: 1, ...
 ```
 
-Now we are going to build the controller for this view. Note that in production you likely would want to add pagination to the accessing of notes to improve page load time. We want to access within the `database` block since this will handle the multi-tenant behaviour:
+Now we are going to build the controller for this view. Note that in production you likely would want to add pagination to the accessing of notes to improve page load time. We want to access within the `database` block since this will handle the db-per-tenant behaviour:
 
 ```rb
 class NotesController < ApplicationController
