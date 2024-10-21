@@ -293,7 +293,7 @@ To build the Note model, we will firstly just make the model in a traditional wa
       create      test/fixtures/notes.yml
 ```
 
-However, before we migrate the records, we need to handle multi-tenancy migrations. To do this, we will use [neon-bulk-migrator](https://github.com/IAmJSD/neon-bulk-migrator). To do so, we need to add the following to `database.yml`:
+However, before we migrate the records, we need to handle migrations. To do this, we will use [neon-bulk-migrator](https://github.com/IAmJSD/neon-bulk-migrator). To do so, we need to add the following to `database.yml`:
 
 ```yaml
 tenant:
