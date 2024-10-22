@@ -8,7 +8,11 @@ import rehypeSemanticImages from "@benjc/rehype-semantic-images";
 export default defineConfig({
     output: "hybrid",
     integrations: [tailwind()],
-    adapter: vercelServerless(),
+    adapter: vercelServerless({
+        webAnalytics: {
+            enabled: true,
+        },
+    }),
     prefetch: {
         prefetchAll: true,
     },
