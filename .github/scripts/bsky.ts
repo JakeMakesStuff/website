@@ -25,13 +25,13 @@ const loginPromise = agent.login({
 async function post(fp: string, attrs: { title: string; description: string }, content: string) {
     await loginPromise;
     const fileName = path.basename(fp).replace(".md", "");
-    let shortDescription = attrs.description.slice(0, 100);
+    let shortDescription = '"' + attrs.description.slice(0, 100).replace(/["]/g, "");
     if (attrs.description.length > 100) {
         shortDescription += "...";
     }
-    const start = `"${shortDescription}"\n\n`;
+    shortDescription += '"';
     const post = await agent.post({
-        text: `"${start}View Blog Post`,
+        text: shortDescription,
         embed: {
             $type: "app.bsky.embed.external",
             external: {
@@ -40,20 +40,6 @@ async function post(fp: string, attrs: { title: string; description: string }, c
                 description: shortDescription,
             },
         },
-        facets: [
-            {
-                features: [
-                    {
-                        $type: "app.bsky.richtext.facet.link",
-                        uri: `https://astrid.place/blog/${fileName}`,
-                    },
-                ],
-                index: {
-                    byteStart: start.length,
-                    byteEnd: start.length + fileName.length,
-                },
-            },
-        ],
     });
     content = content.replace(/^---\n/, `---
 bluesky:
@@ -98,6 +84,6 @@ if (files.length > 0) {
 
     // Try to commit and push the changes
     runShellScript("git", ["add", "."]);
-    runShellScript("git", ["commit", "-m", "Post to Bluesky"]);
+    runShellScript("git", ["commit", "-m", "'Post to Bluesky'"]);
     runShellScript("git", ["push"]);
 }
