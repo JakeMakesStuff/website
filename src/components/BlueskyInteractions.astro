@@ -1,0 +1,27 @@
+<p id="bluesky_interactions" class="mb-4 text-lg">
+    Bluesky: <span class="italic">Loading...</span>
+</p>
+
+<script>
+    import { getThread } from "../scripts/blueskyCache";
+
+    document.addEventListener("astro:page-load", async () => {
+        const el = document.getElementById("bluesky_interactions");
+        if (!el) return;
+
+        const article = document.querySelector("article");
+        const cid = article?.getAttribute("data-bluesky-cid");
+        const uri = article?.getAttribute("data-bluesky-uri");
+        if (cid && uri) {
+            const thread = await getThread(uri);
+            const aElement = document.createElement("a");
+            const uriParts = uri.replace("at://", "");
+            const [did,, id] = uriParts.split("/");
+            aElement.href = `https://bsky.app/profile/${did}/post/${id}`;
+            aElement.target = "_blank";
+            aElement.innerHTML = `Bluesky: 💬 ${thread.post.replyCount} | 💙 ${thread.post.likeCount} | 🔁 ${thread.post.repostCount}`;
+            aElement.style.textDecoration = "none";
+            el.innerHTML = aElement.outerHTML;
+        }
+    });
+</script>

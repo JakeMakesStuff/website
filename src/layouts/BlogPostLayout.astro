@@ -1,8 +1,13 @@
 ---
 import BlogRootLayout from "./BlogRootLayout.astro";
+import BlueskyInteractions from "../components/BlueskyInteractions.astro";
 
 interface Props {
     frontmatter: {
+        bluesky?: {
+            cid: string;
+            uri: string;
+        };
         title: string;
         description: string;
     };
@@ -18,7 +23,12 @@ const { frontmatter } = Astro.props;
             color: unset;
         }
     </style>
-    <article class="prose dark:prose-invert max-w-none mb-10">
+    <article
+        class="prose dark:prose-invert max-w-none mb-10"
+        data-bluesky-cid={frontmatter.bluesky?.cid || ""}
+        data-bluesky-uri={frontmatter.bluesky?.uri || ""}
+    >
+        {frontmatter.bluesky && <BlueskyInteractions />}
         <slot />
     </article>
 </BlogRootLayout>

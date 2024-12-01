@@ -1,3 +1,4 @@
+import { AtpAgent } from "@atproto/api";
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
 
@@ -60,6 +61,23 @@ export const server = {
                 };
             }
             return { success: true as const };
+        },
+    }),
+    getBlueskyPostById: defineAction({
+        input: z.object({
+            id: z.string(),
+        }),
+        async handler({ id }) {
+            const did = process.env.BLUESKY_DID!;
+            const identifier = process.env.BLUESKY_IDENTIFIER!;
+            const token = process.env.BLUESKY_TOKEN!;
+            if (!did || !identifier || !token) {
+                throw new Error("Missing Bluesky credentials");
+            }
+            const agent = new AtpAgent({ service: "https://bsky.social" });
+            await agent.login({ identifier, password: token });
+            const post = await agent.getPostThread({ uri: `at://${did}/app.bsky.feed.post/${encodeURIComponent(id)}` });
+            return JSON.stringify(post.data.thread, null, 2);
         },
     }),
 };

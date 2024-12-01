@@ -13,6 +13,7 @@
         "ci:bsky": "tsx .github/scripts/bsky.ts"
     },
     "dependencies": {
+        "@atproto/api": "^0.13.18",
         "@astrojs/check": "^0.9.4",
         "@astrojs/rss": "^4.0.7",
         "@astrojs/tailwind": "^5.1.1",
@@ -25,7 +26,6 @@
         "typescript": "^5.6.2"
     },
     "devDependencies": {
-        "@atproto/api": "^0.13.18",
         "@benjc/rehype-semantic-images": "^0.1.0",
         "@tailwindcss/typography": "^0.5.15",
         "@types/node": "^22.7.5",
