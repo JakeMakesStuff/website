@@ -69,7 +69,7 @@
             const [did,, id] = uri.replace("at://", "").split("/");
             const url = `https://bsky.app/profile/${did}/post/${encodeURIComponent(id)}`;
             const p = document.createElement("p");
-            p.innerHTML = `Comments on <a href="${url}" target="_blank">Bluesky</a>. If you want to comment, comment there and it will appear here!`;
+            p.innerHTML = `Comments on <a href="${url}" target="_blank" class="underline">Bluesky</a>. If you want to comment, comment there and it will appear here!`;
             p.style.marginBottom = "1.5em";
             el.innerHTML = p.outerHTML;
             for (const reply of thread.replies ?? []) {
