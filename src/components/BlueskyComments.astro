@@ -6,7 +6,7 @@
 </footer>
 
 <script>
-    import { isThreadViewPost, type ThreadViewPost } from "@atproto/api/dist/client/types/app/bsky/feed/defs";
+    import type { ThreadViewPost } from "@atproto/api/dist/client/types/app/bsky/feed/defs";
     import { getThread } from "../scripts/blueskyCache";
     import type { AppBskyFeedPost } from "@atproto/api";
 
@@ -50,8 +50,8 @@
             repliesContainer.classList.add("pl-4");
             container.appendChild(repliesContainer);
             for (const subreply of reply.replies ?? []) {
-                if (isThreadViewPost(subreply)) {
-                    pushReply(subreply, repliesContainer);
+                if (subreply.$type === "app.bsky.feed.defs#threadViewPost") {
+                    pushReply(subreply as ThreadViewPost, repliesContainer);
                 }
             }
         }
@@ -73,8 +73,8 @@
             p.style.marginBottom = "1.5em";
             el.innerHTML = p.outerHTML;
             for (const reply of thread.replies ?? []) {
-                if (isThreadViewPost(reply)) {
-                    pushReply(reply, el);
+                if (reply.$type === "app.bsky.feed.defs#threadViewPost") {
+                    pushReply(reply as ThreadViewPost, el);
                 }
             }
         }
