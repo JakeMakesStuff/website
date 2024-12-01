@@ -63,7 +63,11 @@ bluesky:
     writeFileSync(fp, content);
 }
 
-const files = readFileSync("blog-files.txt", "utf8").split("\n");
+const files = readFileSync("blog-files.txt", "utf8").trim().split("\n");
+
+if (files.length === 1 && files[0] === "") {
+    files.pop();
+}
 
 for (const file of files) {
     const content = readFileSync(file, "utf8");
