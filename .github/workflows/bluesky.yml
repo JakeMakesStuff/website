@@ -10,7 +10,7 @@ jobs:
             - uses: actions/checkout@v4
             - name: Find any files in pages/blog/*.md that were touched by this commit
               run: |
-                git diff --name-only ${{ github.event.deployment_status.deployment.commit }} -- pages/blog/*.md > blog-files.txt
+                git diff --name-only ${{ github.event.deployment_status.deployment.commit }} -- src/pages/blog/*.md > blog-files.txt
             - name: Run each file through the script
               run: npm ci && npm run ci:bsky
               env:
