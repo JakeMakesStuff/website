@@ -5,7 +5,7 @@ jobs:
     post-to-bluesky:
         name: Post to Bluesky
         runs-on: ubuntu-22.04
-        if: github.event.deployment_status.state == 'success' && github.ref == 'refs/heads/main'
+        if: github.event.deployment_status.state == 'success' && github.ref_name == 'main'
         steps:
             - name: Find any files in pages/blog/*.md that were touched by this commit
               run: |
