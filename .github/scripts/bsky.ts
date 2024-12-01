@@ -56,7 +56,12 @@ if (files.length === 1 && files[0] === "") {
 }
 
 for (const file of files) {
-    const content = readFileSync(file, "utf8");
+    let content: string;
+    try {
+        content = readFileSync(file, "utf8");
+    } catch {
+        continue;
+    }
     const data = fm<{ bluesky: any; title: string; description: string }>(content);
     if (data.attributes.bluesky) {
         continue;
