@@ -1,0 +1,17 @@
+name: Post to Bluesky
+on: deployment_status
+
+jobs:
+    post-to-bluesky:
+        name: Post to Bluesky
+        runs-on: ubuntu-22.04
+        if: github.event.deployment_status.state == 'success' && github.ref == 'refs/heads/main'
+        steps:
+            - name: Find any files in pages/blog/*.md that were touched by this commit
+              run: |
+                git diff --name-only ${{ github.event.deployment_status.deployment.commit }} -- pages/blog/*.md > blog-files.txt
+            - name: Run each file through the script
+              run: npm ci && npm run ci:bsky
+              env:
+                BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+                BLUESKY_TOKEN: ${{ secrets.BLUESKY_TOKEN }}
