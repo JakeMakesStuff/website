@@ -10,6 +10,8 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@v4
+              with:
+                fetch-depth: 5
             - name: Find any files in src/pages/blog/*.md that were touched by this commit
               run: git diff --name-only HEAD~1 -- src/pages/blog/*.md > blog-files.txt
             - name: Run each file through the script
