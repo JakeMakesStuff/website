@@ -15,8 +15,7 @@
         if (cid && uri) {
             const thread = await getThread(uri);
             const aElement = document.createElement("a");
-            const uriParts = uri.replace("at://", "");
-            const [did,, id] = uriParts.split("/");
+            const [did,, id] = uri.replace("at://", "").split("/");
             aElement.href = `https://bsky.app/profile/${did}/post/${id}`;
             aElement.target = "_blank";
             aElement.innerHTML = `Bluesky: 💬 ${thread.post.replyCount} | 💙 ${thread.post.likeCount} | 🔁 ${thread.post.repostCount}`;

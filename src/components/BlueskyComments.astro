@@ -1,0 +1,82 @@
+<footer class="border-t-2 border-black dark:border-white pt-10 mb-10">
+    <h3 class="text-3xl font-bold mb-6">Comments</h3>
+    <div id="bluesky_comments">
+        <p class="italic">Loading comments data from Bluesky...</p>
+    </div>
+</footer>
+
+<script>
+    import { isThreadViewPost, type ThreadViewPost } from "@atproto/api/dist/client/types/app/bsky/feed/defs";
+    import { getThread } from "../scripts/blueskyCache";
+    import type { AppBskyFeedPost } from "@atproto/api";
+
+    function pushReply(reply: ThreadViewPost, el: HTMLElement) {
+        // This whole post will be a link to the Bluesky post.
+        const container = document.createElement("div");
+        container.classList.add("mt-8");
+        const a = document.createElement("a");
+        a.href = `https://bsky.app/profile/${reply.post.author.did}/post/${encodeURIComponent(reply.post.uri.split("/").pop()!)}`;
+        a.target = "_blank";
+
+        // Make a flex that has the avatar on the left and the profile name on the right.
+        const flex = document.createElement("div");
+        flex.className = "flex items-center gap-2";
+        if (reply.post.author.avatar) {
+            const avatar = document.createElement("img");
+            avatar.src = reply.post.author.avatar;
+            avatar.className = "w-8 h-8 rounded-full";
+            flex.appendChild(avatar);
+        }
+        const name = document.createElement("span");
+        name.textContent = reply.post.author.displayName ?
+            `${reply.post.author.displayName} (@${reply.post.author.handle})` :
+            `@${reply.post.author.handle}`;
+        flex.appendChild(name);
+        a.appendChild(flex);
+
+        // Create the text element and parse the facets.
+        const text = document.createElement("p");
+        text.innerHTML = (reply.post.record as AppBskyFeedPost.Record).text ?? "";
+        text.classList.add("mt-2");
+        a.appendChild(text);
+
+        // Push the post into the element.
+        container.appendChild(a);
+        el.appendChild(container);
+
+        // If there are replies, make a container for them and tie it to the post.
+        if ((reply.replies?.length ?? 0) > 0) {
+            const repliesContainer = document.createElement("div");
+            repliesContainer.classList.add("pl-4");
+            container.appendChild(repliesContainer);
+            for (const subreply of reply.replies ?? []) {
+                if (isThreadViewPost(subreply)) {
+                    pushReply(subreply, repliesContainer);
+                }
+            }
+        }
+    }
+
+    document.addEventListener("astro:page-load", async () => {
+        const el = document.getElementById("bluesky_comments");
+        if (!el) return;
+
+        const article = document.querySelector("article");
+        const cid = article?.getAttribute("data-bluesky-cid");
+        const uri = article?.getAttribute("data-bluesky-uri");
+        if (cid && uri) {
+            const thread = await getThread(uri);
+            const [did,, id] = uri.replace("at://", "").split("/");
+            const url = `https://bsky.app/profile/${did}/post/${encodeURIComponent(id)}`;
+            const p = document.createElement("p");
+            p.innerHTML = `Comments on <a href="${url}" target="_blank">Bluesky</a>. If you want to comment, comment there and it will appear here!`;
+            p.style.marginBottom = "1.5em";
+            el.innerHTML = p.outerHTML;
+            for (const reply of thread.replies ?? []) {
+                if (isThreadViewPost(reply)) {
+                    pushReply(reply, el);
+                }
+            }
+        }
+    });
+</script>

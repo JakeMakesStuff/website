@@ -1,6 +1,7 @@
 ---
 import BlogRootLayout from "./BlogRootLayout.astro";
 import BlueskyInteractions from "../components/BlueskyInteractions.astro";
+import BlueskyComments from "../components/BlueskyComments.astro";
 
 interface Props {
     frontmatter: {
@@ -31,4 +32,5 @@ const { frontmatter } = Astro.props;
         {frontmatter.bluesky && <BlueskyInteractions />}
         <slot />
     </article>
+    {frontmatter.bluesky && <BlueskyComments />}
 </BlogRootLayout>
