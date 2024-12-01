@@ -37,7 +37,7 @@ async function post(fp: string, attrs: { title: string; description: string }, c
             external: {
                 uri: `https://astrid.place/blog/${fileName}`,
                 title: attrs.title,
-                description: shortDescription,
+                description: attrs.description,
             },
         },
     });
