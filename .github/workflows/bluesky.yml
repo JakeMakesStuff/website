@@ -1,5 +1,8 @@
 name: Post to Bluesky
-on: deployment_status
+on:
+    push:
+        branches:
+            - master
 
 jobs:
     post-to-bluesky:
@@ -9,8 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: Find any files in src/pages/blog/*.md that were touched by this commit
-              run: |
-                git diff --name-only origin/master~1 -- src/pages/blog/*.md > blog-files.txt
+              run: git diff --name-only HEAD~1 -- src/pages/blog/*.md > blog-files.txt
             - name: Run each file through the script
               run: npm ci && npm run ci:bsky
               env:
