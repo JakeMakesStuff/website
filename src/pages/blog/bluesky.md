@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreibq63pqfzeprmkyhbjwfhilzudws6sburksicfxdsliztp2whzcky"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lcbaqp3tib2q"
 layout: ../../layouts/BlogPostLayout.astro
 title: "Welcome to Bluesky!"
 description: "I have started being active on Bluesky and I love it! Here's how I integrated it with my website."
