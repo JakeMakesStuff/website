@@ -1,4 +1,7 @@
 ---
+bluesky:
+    cid: "bafyreih54kn5piugis2ihf4nzvc5lxbvomopti643hs6vo6sqwg6lnxnne"
+    uri: "at://did:plc:ij5756nvubeeqo2kn6eeezdx/app.bsky.feed.post/3lcw6nocoav2b"
 title: "A letter to my MP"
 description: "A letter I wrote to my MP about the state of Brexit Britain and the impact on me"
 layout: ../../layouts/BlogPostLayout.astro
